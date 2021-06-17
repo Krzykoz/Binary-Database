@@ -6,7 +6,33 @@
 
 #IncludeRegexTransform: 
 
-/Users/krzykoz/CLionProjects/Projekt PK/main.cpp
+C:/Users/Krzykoz/CLionProjects/Projekt_PK/Bike.h
+Vehicle.h
+C:/Users/Krzykoz/CLionProjects/Projekt_PK/Vehicle.h
+
+C:/Users/Krzykoz/CLionProjects/Projekt_PK/Car.h
+Vehicle.h
+C:/Users/Krzykoz/CLionProjects/Projekt_PK/Vehicle.h
+
+C:/Users/Krzykoz/CLionProjects/Projekt_PK/Other.h
+Vehicle.h
+C:/Users/Krzykoz/CLionProjects/Projekt_PK/Vehicle.h
+
+C:/Users/Krzykoz/CLionProjects/Projekt_PK/Vehicle.h
+Vehicle.h
+C:/Users/Krzykoz/CLionProjects/Projekt_PK/Vehicle.h
+
+C:/Users/Krzykoz/CLionProjects/Projekt_PK/main.cpp
 iostream
 -
+pch.h
+C:/Users/Krzykoz/CLionProjects/Projekt_PK/pch.h
+
+C:/Users/Krzykoz/CLionProjects/Projekt_PK/pch.h
+Car.h
+C:/Users/Krzykoz/CLionProjects/Projekt_PK/Car.h
+Bike.h
+C:/Users/Krzykoz/CLionProjects/Projekt_PK/Bike.h
+Other.h
+C:/Users/Krzykoz/CLionProjects/Projekt_PK/Other.h
 

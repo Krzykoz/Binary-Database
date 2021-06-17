@@ -4,9 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/krzykoz/CLionProjects/Projekt PK/main.cpp" "/Users/krzykoz/CLionProjects/Projekt PK/cmake-build-debug/CMakeFiles/Projekt_PK.dir/main.cpp.o"
+  "C:/Users/Krzykoz/CLionProjects/Projekt_PK/Bike.cpp" "C:/Users/Krzykoz/CLionProjects/Projekt_PK/cmake-build-debug/CMakeFiles/Projekt_PK.dir/Bike.cpp.obj"
+  "C:/Users/Krzykoz/CLionProjects/Projekt_PK/Car.cpp" "C:/Users/Krzykoz/CLionProjects/Projekt_PK/cmake-build-debug/CMakeFiles/Projekt_PK.dir/Car.cpp.obj"
+  "C:/Users/Krzykoz/CLionProjects/Projekt_PK/Other.cpp" "C:/Users/Krzykoz/CLionProjects/Projekt_PK/cmake-build-debug/CMakeFiles/Projekt_PK.dir/Other.cpp.obj"
+  "C:/Users/Krzykoz/CLionProjects/Projekt_PK/Vehicle.cpp" "C:/Users/Krzykoz/CLionProjects/Projekt_PK/cmake-build-debug/CMakeFiles/Projekt_PK.dir/Vehicle.cpp.obj"
+  "C:/Users/Krzykoz/CLionProjects/Projekt_PK/main.cpp" "C:/Users/Krzykoz/CLionProjects/Projekt_PK/cmake-build-debug/CMakeFiles/Projekt_PK.dir/main.cpp.obj"
   )
-set(CMAKE_CXX_COMPILER_ID "AppleClang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
