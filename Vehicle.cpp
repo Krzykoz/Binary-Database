@@ -1,7 +1,3 @@
-//
-// Created by Krzykoz on 17.06.2021.
-//
-
 #include "Vehicle.h"
 #include <cstring>
 

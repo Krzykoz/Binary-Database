@@ -6,33 +6,63 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Krzykoz/CLionProjects/Projekt_PK/Bike.h
-Vehicle.h
-C:/Users/Krzykoz/CLionProjects/Projekt_PK/Vehicle.h
+/Users/krzykoz/CLionProjects/Projekt PK/Bike.cpp
+Bike.h
+/Users/krzykoz/CLionProjects/Projekt PK/Bike.h
+iostream
+-
+cstring
+-
 
-C:/Users/Krzykoz/CLionProjects/Projekt_PK/Car.h
+/Users/krzykoz/CLionProjects/Projekt PK/Bike.h
 Vehicle.h
-C:/Users/Krzykoz/CLionProjects/Projekt_PK/Vehicle.h
+/Users/krzykoz/CLionProjects/Projekt PK/Vehicle.h
 
-C:/Users/Krzykoz/CLionProjects/Projekt_PK/Other.h
+/Users/krzykoz/CLionProjects/Projekt PK/Car.cpp
+Car.h
+/Users/krzykoz/CLionProjects/Projekt PK/Car.h
+iostream
+-
+cstring
+-
+
+/Users/krzykoz/CLionProjects/Projekt PK/Car.h
 Vehicle.h
-C:/Users/Krzykoz/CLionProjects/Projekt_PK/Vehicle.h
+/Users/krzykoz/CLionProjects/Projekt PK/Vehicle.h
 
-C:/Users/Krzykoz/CLionProjects/Projekt_PK/Vehicle.h
+/Users/krzykoz/CLionProjects/Projekt PK/Other.cpp
+Other.h
+/Users/krzykoz/CLionProjects/Projekt PK/Other.h
+iostream
+-
+cstring
+-
+
+/Users/krzykoz/CLionProjects/Projekt PK/Other.h
 Vehicle.h
-C:/Users/Krzykoz/CLionProjects/Projekt_PK/Vehicle.h
+/Users/krzykoz/CLionProjects/Projekt PK/Vehicle.h
 
-C:/Users/Krzykoz/CLionProjects/Projekt_PK/main.cpp
+/Users/krzykoz/CLionProjects/Projekt PK/Vehicle.cpp
+Vehicle.h
+/Users/krzykoz/CLionProjects/Projekt PK/Vehicle.h
+cstring
+-
+
+/Users/krzykoz/CLionProjects/Projekt PK/Vehicle.h
+Vehicle.h
+/Users/krzykoz/CLionProjects/Projekt PK/Vehicle.h
+
+/Users/krzykoz/CLionProjects/Projekt PK/main.cpp
 iostream
 -
 pch.h
-C:/Users/Krzykoz/CLionProjects/Projekt_PK/pch.h
+/Users/krzykoz/CLionProjects/Projekt PK/pch.h
 
-C:/Users/Krzykoz/CLionProjects/Projekt_PK/pch.h
+/Users/krzykoz/CLionProjects/Projekt PK/pch.h
 Car.h
-C:/Users/Krzykoz/CLionProjects/Projekt_PK/Car.h
+/Users/krzykoz/CLionProjects/Projekt PK/Car.h
 Bike.h
-C:/Users/Krzykoz/CLionProjects/Projekt_PK/Bike.h
+/Users/krzykoz/CLionProjects/Projekt PK/Bike.h
 Other.h
-C:/Users/Krzykoz/CLionProjects/Projekt_PK/Other.h
+/Users/krzykoz/CLionProjects/Projekt PK/Other.h
 

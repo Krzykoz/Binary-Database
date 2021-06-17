@@ -1,13 +1,11 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Projekt_PK.dir/Bike.cpp.obj"
-  "CMakeFiles/Projekt_PK.dir/Car.cpp.obj"
-  "CMakeFiles/Projekt_PK.dir/Other.cpp.obj"
-  "CMakeFiles/Projekt_PK.dir/Vehicle.cpp.obj"
-  "CMakeFiles/Projekt_PK.dir/main.cpp.obj"
-  "Projekt_PK.exe"
-  "Projekt_PK.exe.manifest"
+  "CMakeFiles/Projekt_PK.dir/Bike.cpp.o"
+  "CMakeFiles/Projekt_PK.dir/Car.cpp.o"
+  "CMakeFiles/Projekt_PK.dir/Other.cpp.o"
+  "CMakeFiles/Projekt_PK.dir/Vehicle.cpp.o"
+  "CMakeFiles/Projekt_PK.dir/main.cpp.o"
+  "Projekt_PK"
   "Projekt_PK.pdb"
-  "libProjekt_PK.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

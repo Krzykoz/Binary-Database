@@ -1,7 +1,3 @@
-//
-// Created by Krzykoz on 17.06.2021.
-//
-
 #ifndef PROJEKT_PK_VEHICLE_H
 #define PROJEKT_PK_VEHICLE_H
 #include "Vehicle.h"
