@@ -6,47 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/Users/krzykoz/CLionProjects/Projekt PK/Bike.cpp
-Bike.h
-/Users/krzykoz/CLionProjects/Projekt PK/Bike.h
-iostream
--
-cstring
--
-
 /Users/krzykoz/CLionProjects/Projekt PK/Bike.h
 Vehicle.h
 /Users/krzykoz/CLionProjects/Projekt PK/Vehicle.h
-
-/Users/krzykoz/CLionProjects/Projekt PK/Car.cpp
-Car.h
-/Users/krzykoz/CLionProjects/Projekt PK/Car.h
-iostream
--
-cstring
--
 
 /Users/krzykoz/CLionProjects/Projekt PK/Car.h
 Vehicle.h
 /Users/krzykoz/CLionProjects/Projekt PK/Vehicle.h
 
-/Users/krzykoz/CLionProjects/Projekt PK/Other.cpp
-Other.h
-/Users/krzykoz/CLionProjects/Projekt PK/Other.h
-iostream
--
-cstring
--
-
 /Users/krzykoz/CLionProjects/Projekt PK/Other.h
 Vehicle.h
 /Users/krzykoz/CLionProjects/Projekt PK/Vehicle.h
-
-/Users/krzykoz/CLionProjects/Projekt PK/Vehicle.cpp
-Vehicle.h
-/Users/krzykoz/CLionProjects/Projekt PK/Vehicle.h
-cstring
--
 
 /Users/krzykoz/CLionProjects/Projekt PK/Vehicle.h
 Vehicle.h
@@ -54,6 +24,8 @@ Vehicle.h
 
 /Users/krzykoz/CLionProjects/Projekt PK/main.cpp
 iostream
+-
+fstream
 -
 pch.h
 /Users/krzykoz/CLionProjects/Projekt PK/pch.h
