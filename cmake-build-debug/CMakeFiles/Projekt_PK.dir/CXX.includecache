@@ -27,6 +27,8 @@ iostream
 -
 fstream
 -
+vector
+-
 pch.h
 /Users/krzykoz/CLionProjects/Projekt PK/pch.h
 
