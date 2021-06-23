@@ -1,5 +1,7 @@
 #ifndef PROJEKT_PK_CAR_H
 #define PROJEKT_PK_CAR_H
+
+#include <vector>
 #include "Vehicle.h"
 
 class Car : public Vehicle {

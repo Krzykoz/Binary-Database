@@ -13,12 +13,15 @@ void save(std::vector <Vehicle *>& vehicles) {
 for(Vehicle *i : vehicles){
         sizes.push_back(i->size());
  }
-    vectSize = sizeof(sizes);
+    vectSize = sizes.size();
     std::cout << vectSize;
 
     if(outFile.is_open()){
         outFile.write(reinterpret_cast<char*>(&vectSize), sizeof(vectSize));
-        outFile.write(reinterpret_cast<char*>(&sizes), sizeof(sizes));
+
+        for(int i : sizes){
+            outFile.write(reinterpret_cast<char*>(&i), sizeof(i));
+        }
         for(Vehicle *i : vehicles){
             outFile.write(reinterpret_cast<char*>(i), i->size());
         }
@@ -38,7 +41,11 @@ int read(std::vector <Vehicle*>& vect) {
     if(inFile.is_open()){
         inFile.read(reinterpret_cast<char*>(&vectSize), sizeof(int));
 
-        inFile.read(reinterpret_cast<char*>(&sizes), vectSize);
+        for(int i = 1; i<=vectSize; i++){
+            int sizeTmp;
+            inFile.read(reinterpret_cast<char*>(&sizeTmp), sizeof(int));
+            sizes.push_back(sizeTmp);
+        }
 
         for(int i : sizes){
             std::cout << "rozmiar obiektu: "<< i << "\n";
@@ -48,18 +55,21 @@ int read(std::vector <Vehicle*>& vect) {
                     Car c1;
                     inFile.read(reinterpret_cast<char *>(&c1), i);
                     c1.describe();
+                    vect.push_back(&c1);
                 }break;
                 case 104: {
                     std::cout << "Otwieram rower o rozmairze: "<< i << "\n";
                     Bike b1;
                     inFile.read(reinterpret_cast<char *>(&b1), i);
                     b1.describe();
+                    vect.push_back(&b1);
                 }break;
                 case 80: {
                     std::cout << "Otwieram other o rozmairze: "<< i << "\n";
                     Other o1;
                     inFile.read(reinterpret_cast<char *>(&o1), i);
                     o1.describe();
+                    vect.push_back(&o1);
                 }break;
                 default:{
                     std::cout << "Błąd w chuj";
@@ -89,16 +99,14 @@ int main() {
     vehicles.push_back(&bike);
     vehicles.push_back(&other);
 
-    vehicles[0]->describe();
-    vehicles[1]->describe();
-    vehicles[2]->describe();
-
-
 
     save(vehicles);
     std::cout << "\n//////////////////////////////////////////////////////////////////////////////// \n\n";
     read(vehicles);
 
+    for(Vehicle* i: vehicles){
+        i->describe();
+    }
 
     return 0;
 
