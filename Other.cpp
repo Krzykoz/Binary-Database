@@ -14,3 +14,7 @@ void Other::describe() {
     std::cout << this->_manufacturer << " " << this->_name << " " << this->_year <<"\n";
     std::cout << this->_power << " HP, " << "Range: " << this->_range << " KM, Battery capacity: " << this->_battery << " mAh\n\n";
 }
+
+int Other::size() {
+    return sizeof(*this);
+}

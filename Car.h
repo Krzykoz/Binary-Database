@@ -9,6 +9,7 @@ public:
         unsigned year, float power, const char body[25], const char color[25],
         unsigned _seats, unsigned motors);
     void describe() override;
+    int size() override;
 private:
     char _body[25];
     char _color[25];

@@ -3,48 +3,103 @@
 #include <vector>
 #include "pch.h"
 
-int main() {
-    int vectSize;
+void save(std::vector <Vehicle *>& vehicles) {
     std::vector <int> sizes;
+    int vectSize;
+
+    std::ofstream outFile;
+    outFile.open("records.dat", std::ios::out | std::ios::binary);
+    sizes.reserve(vehicles.size());
+for(Vehicle *i : vehicles){
+        sizes.push_back(i->size());
+ }
+    vectSize = sizeof(sizes);
+    std::cout << vectSize;
+
+    if(outFile.is_open()){
+        outFile.write(reinterpret_cast<char*>(&vectSize), sizeof(vectSize));
+        outFile.write(reinterpret_cast<char*>(&sizes), sizeof(sizes));
+        for(Vehicle *i : vehicles){
+            outFile.write(reinterpret_cast<char*>(i), i->size());
+        }
+        outFile.close();
+    }else{
+        std::cout << "ERROR!";
+    }
+}
+
+int read(std::vector <Vehicle*>& vect) {
+    std::vector <int> sizes;
+    int vectSize;
+
+    std::ifstream inFile;
+    inFile.open("records.dat", std::ios::in | std::ios::binary);
+
+    if(inFile.is_open()){
+        inFile.read(reinterpret_cast<char*>(&vectSize), sizeof(int));
+
+        inFile.read(reinterpret_cast<char*>(&sizes), vectSize);
+
+        for(int i : sizes){
+            std::cout << "rozmiar obiektu: "<< i << "\n";
+            switch (i) {
+                case 128: {
+                    std::cout << "Otwieram Fure o rozmairze: "<< i << "\n";
+                    Car c1;
+                    inFile.read(reinterpret_cast<char *>(&c1), i);
+                    c1.describe();
+                }break;
+                case 104: {
+                    std::cout << "Otwieram rower o rozmairze: "<< i << "\n";
+                    Bike b1;
+                    inFile.read(reinterpret_cast<char *>(&b1), i);
+                    b1.describe();
+                }break;
+                case 80: {
+                    std::cout << "Otwieram other o rozmairze: "<< i << "\n";
+                    Other o1;
+                    inFile.read(reinterpret_cast<char *>(&o1), i);
+                    o1.describe();
+                }break;
+                default:{
+                    std::cout << "Błąd w chuj";
+                    return 1;
+                }
+            }
+
+        }
+        inFile.close();
+        return 0;
+    }else{
+        std::cout << "ERROR!";
+        return 3;
+    }
+}
+
+int main() {
     std::vector <Vehicle *> vehicles;
 
     Car car("Tesla", "Model S", 2021, 1020.0f, "Sedan", "Solar Red", 5, 3);
-    vehicles.push_back(&car);
+
     Bike bike("Korss", "E-Bike MTB", 2020, 0.3f, 27, "Aluminium");
-    vehicles.push_back(&bike);
+
     Other other("Xiaomi", "Mi Electric Scooter", 2018, 0.05f, 20, 5200);
 
-    car.describe();
-    bike.describe();
-    other.describe();
+    vehicles.push_back(&car);
+    vehicles.push_back(&bike);
+    vehicles.push_back(&other);
+
     vehicles[0]->describe();
     vehicles[1]->describe();
+    vehicles[2]->describe();
 
 
-    std::fstream file;
-    file.open("records.dat", std::ios::out | std::ios::binary);
 
-    if(file.is_open()){
-        file.write(reinterpret_cast<char*>(vehicles[0]), sizeof(Car));
-        file.close();
-    }else{
-        std::cout << "ERROR!";
-    }
+    save(vehicles);
+    std::cout << "\n//////////////////////////////////////////////////////////////////////////////// \n\n";
+    read(vehicles);
 
-   std::cout << "\n" << sizeof(Car) << "\n";
-
-   Car read;
-
-   file.open("records.dat", std::ios::in | std::ios::binary);
-
-    if(file.is_open()){
-        file.read(reinterpret_cast<char*>(&read), sizeof(Car));
-        file.close();
-    }else{
-        std::cout << "ERROR!";
-    }
-
-    read.describe();
 
     return 0;
+
 }

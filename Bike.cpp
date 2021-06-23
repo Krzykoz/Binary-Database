@@ -16,3 +16,7 @@ void Bike::describe() {
     std::cout << this->_manufacturer << " " << this->_name << " " << this->_year <<"\n";
     std::cout << this->_power << " HP, " << "Size: " << this->_size << ", Frame material: " << this->_frame << "\n\n";
 }
+
+int Bike::size() {
+    return sizeof(*this);
+}

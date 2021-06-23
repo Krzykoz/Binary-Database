@@ -8,6 +8,7 @@ public:
     Bike(const char manufacturer[25], const char name[25],
         unsigned year, float power, unsigned size, const char frame[25]);
     void describe() override;
+    int size() override;
 private:
     unsigned _size;
     char _frame[25];
