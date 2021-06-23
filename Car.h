@@ -7,9 +7,11 @@
 class Car : public Vehicle {
 public:
     Car();
+    Car(const Car&);
     Car(const char manufacturer[25], const char name[25],
         unsigned year, float power, const char body[25], const char color[25],
         unsigned _seats, unsigned motors);
+    Car& operator=(const Car&);
     void describe() override;
     int size() override;
 private:

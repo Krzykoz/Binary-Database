@@ -54,22 +54,25 @@ int read(std::vector <Vehicle*>& vect) {
                     std::cout << "Otwieram Fure o rozmairze: "<< i << "\n";
                     Car c1;
                     inFile.read(reinterpret_cast<char *>(&c1), i);
-                    c1.describe();
-                    vect.push_back(&c1);
+                    Car *c2 = new Car(c1);
+                    c2->describe();
+                    vect.push_back(c2);
                 }break;
                 case 104: {
                     std::cout << "Otwieram rower o rozmairze: "<< i << "\n";
                     Bike b1;
                     inFile.read(reinterpret_cast<char *>(&b1), i);
-                    b1.describe();
-                    vect.push_back(&b1);
+                    Bike* b2 = new Bike(b1);
+                    b2->describe();
+                    vect.push_back(b2);
                 }break;
                 case 80: {
                     std::cout << "Otwieram other o rozmairze: "<< i << "\n";
                     Other o1;
                     inFile.read(reinterpret_cast<char *>(&o1), i);
-                    o1.describe();
-                    vect.push_back(&o1);
+                    Other* o2 = new Other(o1);
+                    o2->describe();
+                    vect.push_back(o2);
                 }break;
                 default:{
                     std::cout << "Błąd w chuj";
@@ -103,6 +106,8 @@ int main() {
     save(vehicles);
     std::cout << "\n//////////////////////////////////////////////////////////////////////////////// \n\n";
     read(vehicles);
+    std::cout << "\n//////////////////////////////////////////////////////////////////////////////// \n\n";
+
 
     for(Vehicle* i: vehicles){
         i->describe();
