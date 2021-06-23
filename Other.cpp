@@ -2,9 +2,7 @@
 #include <iostream>
 #include <cstring>
 
-Other::Other() {
-
-}
+Other::Other() = default;
 
 Other::Other(const char manufacturer[25], const char name[25],
            unsigned year, float power,float range, unsigned battery)

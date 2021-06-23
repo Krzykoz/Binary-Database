@@ -14,7 +14,6 @@ for(Vehicle *i : vehicles){
         sizes.push_back(i->size());
  }
     vectSize = sizes.size();
-    std::cout << vectSize;
 
     if(outFile.is_open()){
         outFile.write(reinterpret_cast<char*>(&vectSize), sizeof(vectSize));
@@ -98,9 +97,15 @@ int main() {
 
     Other other("Xiaomi", "Mi Electric Scooter", 2018, 0.05f, 20, 5200);
 
+    Car car1("Porsche", "Taycan Turbo S", 2020, 761.0f, "Sedan", "Mamba Green", 5, 2);
+
+    Car car2("Tesla", "Model X", 2020, 275.0f, "SUV", "Deep Blue", 7, 2);
+
     vehicles.push_back(&car);
     vehicles.push_back(&bike);
     vehicles.push_back(&other);
+    vehicles.push_back(&car1);
+    vehicles.push_back(&car2);
 
 
     save(vehicles);

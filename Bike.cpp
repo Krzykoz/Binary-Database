@@ -2,9 +2,7 @@
 #include <iostream>
 #include <cstring>
 
-Bike::Bike() {
-
-}
+Bike::Bike() = default;
 
 Bike::Bike(const char manufacturer[25], const char name[25],
          unsigned year, float power,unsigned size, const char frame[25])
