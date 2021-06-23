@@ -5,7 +5,7 @@
 
 void save(std::vector <Vehicle *>& vehicles) {
     std::vector <int> sizes;
-    int vectSize;
+    unsigned long vectSize;
 
     std::ofstream outFile;
     outFile.open("records.dat", std::ios::out | std::ios::binary);
@@ -33,13 +33,13 @@ for(Vehicle *i : vehicles){
 
 int read(std::vector <Vehicle*>& vect) {
     std::vector <int> sizes;
-    int vectSize;
+    unsigned long vectSize;
 
     std::ifstream inFile;
     inFile.open("records.dat", std::ios::in | std::ios::binary);
 
     if(inFile.is_open()){
-        inFile.read(reinterpret_cast<char*>(&vectSize), sizeof(int));
+        inFile.read(reinterpret_cast<char*>(&vectSize), sizeof(unsigned long));
 
         for(int i = 1; i<=vectSize; i++){
             int sizeTmp;
