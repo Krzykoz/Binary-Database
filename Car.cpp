@@ -37,3 +37,48 @@ void Car::describe() {
 int Car::size() {
     return sizeof(*this);
 }
+
+void Car::setData(){
+    const char *manu[25];
+    const char *name[25];
+    unsigned year;
+    float power;
+    const char *body[25];
+    const char *color[25];
+    unsigned seats;
+    unsigned motors;
+
+
+
+    std::cout << "\nPodaj nazwę producenta samochodu: ";
+    std::cin >> (signed char *) manu;
+    strcpy(this->_manufacturer, reinterpret_cast<const char *>(manu));
+
+    std::cout << "\nPodaj nazwę samochodu: ";
+    std::cin >> (signed char *) name;
+    strcpy(this->_name, reinterpret_cast<const char *>(name));
+
+    std::cout << "\nPodaj rok produkcji samochodu: ";
+    std::cin >> year;
+    _year = year;
+
+    std::cout << "\nPodaj moc samochodu: ";
+    std::cin >> power;
+    _power = power;
+
+    std::cout << "\nPodaj rodzaj nadowzia samochodu: ";
+    std::cin >> (signed char *) body;
+    strcpy(this->_body, reinterpret_cast<const char *>(body));
+
+    std::cout << "\nPodaj kolor karoseri samochodu: ";
+    std::cin >> (signed char *) color;
+    strcpy(this->_color, reinterpret_cast<const char *>(color));
+
+    std::cout << "\nPodaj ilość miejsc w samochodzie: ";
+    std::cin >> seats;
+    _year = seats;
+
+    std::cout << "\nPodaj ilość silników w samochodzie: ";
+    std::cin >> motors;
+    _year = motors;
+}

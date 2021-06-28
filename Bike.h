@@ -9,6 +9,7 @@ public:
         unsigned year, float power, unsigned size, const char frame[25]);
     void describe() override;
     int size() override;
+    void setData() override;
 private:
     unsigned _size;
     char _frame[25];

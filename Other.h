@@ -9,6 +9,7 @@ public:
          unsigned year, float power, float range, unsigned battery);
     void describe() override;
     int size() override;
+    void setData() override;
 private:
     float _range;
     unsigned _battery;

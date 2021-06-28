@@ -33,10 +33,8 @@ int read(std::vector <Vehicle*>& vect) {
         }
 
         for(int i : sizes){
-            std::cout << "rozmiar obiektu: "<< i << "\n";
             switch (i) {
                 case 128: {
-                    std::cout << "Otwieram Fure o rozmairze: "<< i << "\n";
                     Car c1;
                     inFile.read(reinterpret_cast<char *>(&c1), i);
                     Car *c2 = new Car(c1);
@@ -44,7 +42,6 @@ int read(std::vector <Vehicle*>& vect) {
                     vect.push_back(c2);
                 }break;
                 case 104: {
-                    std::cout << "Otwieram rower o rozmairze: "<< i << "\n";
                     Bike b1;
                     inFile.read(reinterpret_cast<char *>(&b1), i);
                     Bike* b2 = new Bike(b1);
@@ -52,7 +49,6 @@ int read(std::vector <Vehicle*>& vect) {
                     vect.push_back(b2);
                 }break;
                 case 80: {
-                    std::cout << "Otwieram other o rozmairze: "<< i << "\n";
                     Other o1;
                     inFile.read(reinterpret_cast<char *>(&o1), i);
                     Other* o2 = new Other(o1);
@@ -60,7 +56,7 @@ int read(std::vector <Vehicle*>& vect) {
                     vect.push_back(o2);
                 }break;
                 default:{
-                    std::cout << "Błąd w chuj";
+                    std::cout << "Błąd podczasz wczytywania plików!\n";
                     return 1;
                 }
             }
@@ -69,12 +65,12 @@ int read(std::vector <Vehicle*>& vect) {
         inFile.close();
         return 0;
     }else{
-        std::cout << "ERROR!";
+        std::cout << "Bład plik nie otwarty!\n";
         return 3;
     }
 }
 
-void save(std::vector <Vehicle *>& vehicles) {
+int save(std::vector <Vehicle *>& vehicles) {
     std::vector <int> sizes;
     unsigned long vectSize;
     std::string fileName = "records.dat";
@@ -100,10 +96,54 @@ for(Vehicle *i : vehicles){
             outFile.write(reinterpret_cast<char*>(i), i->size());
         }
         outFile.close();
+        return 0;
     }else{
         std::cout << "ERROR!";
+        return 1;
     }
 }
+
+int addVech(std::vector <Vehicle *>& vect) {
+    int choice = 0;
+
+    std::cout << "Samochód = 1\n";
+    std::cout << "Rower = 2\n";
+    std::cout << "Int\n";
+
+    std::cout << "Wybierz rodzaj pojazdu do dodania\n";
+    std::cin >> choice;
+    switch (choice) {
+        case 1: {
+            Car c1;
+            c1.setData();
+            Car *c2 = new Car(c1);
+            c2->describe();
+            vect.push_back(c2);
+        }
+            break;
+        case 2: {
+            Bike b1;
+            b1.setData();
+            Bike *b2 = new Bike(b1);
+            b2->describe();
+            vect.push_back(b2);
+        }
+            break;
+        case 3: {
+            Other o1;
+            o1.setData();
+            Other *o2 = new Other(o1);
+            o2->describe();
+            vect.push_back(o2);
+        }
+            break;
+        default: {
+            std::cout << "Błąd w chuj";
+        }
+    }
+    return 0;
+}
+
 
 int delVech(std::vector <Vehicle *>& vect){
     unsigned int index = 0;
@@ -118,9 +158,9 @@ int delVech(std::vector <Vehicle *>& vect){
         vect.erase(vect.begin() + index);
         std::cout << "Usunięto Pojazd numer: " << index+1 << ".\n";
     }else{
-        return 0;
+        return 1;
     }
-
+    return 0;
 
 }
 
@@ -142,24 +182,19 @@ int menu(std::vector <Vehicle*>& vect){
 
     switch(x){
         case 1:{
-            std::cout << "\n//////////////////////////////////////////////////////////////////////////////// \n\n";
             read(vect);
-            std::cout << "\n//////////////////////////////////////////////////////////////////////////////// \n\n";
         }break;
         case 2:{
-            std::cout << "\n//////////////////////////////////////////////////////////////////////////////// \n\n";
             save(vect);
-            std::cout << "\n//////////////////////////////////////////////////////////////////////////////// \n\n";
         }break;
         case 3:{
-            std::cout << "\n//////////////////////////////////////////////////////////////////////////////// \n\n";
             printVect(vect);
-            std::cout << "\n//////////////////////////////////////////////////////////////////////////////// \n\n";
+        }break;
+        case 4:{
+            addVech(vect);
         }break;
         case 5:{
-            std::cout << "\n//////////////////////////////////////////////////////////////////////////////// \n\n";
             delVech(vect);
-            std::cout << "\n//////////////////////////////////////////////////////////////////////////////// \n\n";
         }break;
         case 6:{
             return 0;
