@@ -3,30 +3,12 @@
 #include <vector>
 #include "pch.h"
 
-void save(std::vector <Vehicle *>& vehicles) {
-    std::vector <int> sizes;
-    unsigned long vectSize;
-
-    std::ofstream outFile;
-    outFile.open("records.dat", std::ios::out | std::ios::binary);
-    sizes.reserve(vehicles.size());
-for(Vehicle *i : vehicles){
-        sizes.push_back(i->size());
- }
-    vectSize = sizes.size();
-
-    if(outFile.is_open()){
-        outFile.write(reinterpret_cast<char*>(&vectSize), sizeof(vectSize));
-
-        for(int i : sizes){
-            outFile.write(reinterpret_cast<char*>(&i), sizeof(i));
-        }
-        for(Vehicle *i : vehicles){
-            outFile.write(reinterpret_cast<char*>(i), i->size());
-        }
-        outFile.close();
-    }else{
-        std::cout << "ERROR!";
+void printVect(std::vector <Vehicle*>& vect){
+    int i = 1;
+    for(Vehicle* v: vect){
+        std::cout << i << ". ";
+        v->describe();
+        i++;
     }
 }
 
@@ -88,35 +70,90 @@ int read(std::vector <Vehicle*>& vect) {
     }
 }
 
+void save(std::vector <Vehicle *>& vehicles) {
+    std::vector <int> sizes;
+    unsigned long vectSize;
+
+    std::ofstream outFile;
+    outFile.open("records.dat", std::ios::out | std::ios::binary);
+    sizes.reserve(vehicles.size());
+for(Vehicle *i : vehicles){
+        sizes.push_back(i->size());
+ }
+    vectSize = sizes.size();
+
+    if(outFile.is_open()){
+        outFile.write(reinterpret_cast<char*>(&vectSize), sizeof(vectSize));
+
+        for(int i : sizes){
+            outFile.write(reinterpret_cast<char*>(&i), sizeof(i));
+        }
+        for(Vehicle *i : vehicles){
+            outFile.write(reinterpret_cast<char*>(i), i->size());
+        }
+        outFile.close();
+    }else{
+        std::cout << "ERROR!";
+    }
+}
+
+int delVech(std::vector <Vehicle *>& vect){
+    int index = 0;
+    printVect(vect);
+
+
+}
+
+int menu(std::vector <Vehicle*>& vect){
+    int x;
+    std::cout << "###########################################\n";
+    std::cout << "#                                         #\n";
+    std::cout << "#              1. Wczytaj Plik            #\n";
+    std::cout << "#             2. Zapisz do Pliku          #\n";
+    std::cout << "#          3. Wyśietl Baze Danych         #\n";
+    std::cout << "#           4. Dodaj nowy pojazd          #\n";
+    std::cout << "#               5. Usuń Pojazd            #\n";
+    std::cout << "#             6. Zamknij Program          #\n";
+    std::cout << "#                                         #\n";
+    std::cout << "###########################################\n\n";
+
+    std::cout << "Wybierz opcje z menu: ";
+    std::cin >> x;
+
+    switch(x){
+        case 1:{
+            std::cout << "\n//////////////////////////////////////////////////////////////////////////////// \n\n";
+            read(vect);
+            std::cout << "\n//////////////////////////////////////////////////////////////////////////////// \n\n";
+        }break;
+        case 2:{
+            std::cout << "\n//////////////////////////////////////////////////////////////////////////////// \n\n";
+            save(vect);
+            std::cout << "\n//////////////////////////////////////////////////////////////////////////////// \n\n";
+        }break;
+        case 3:{
+            std::cout << "\n//////////////////////////////////////////////////////////////////////////////// \n\n";
+            printVect(vect);
+            std::cout << "\n//////////////////////////////////////////////////////////////////////////////// \n\n";
+        }break;
+        case 6:{
+            return 0;
+        }break;
+        default:{
+            std::cout << "Nieporawna Opcja Menu, uruchom program ponownie! \n";
+            return 1;
+        }break;
+    }
+
+    menu(vect);
+    return 0;
+}
+
 int main() {
     std::vector <Vehicle *> vehicles;
 
-    Car car("Tesla", "Model S", 2021, 1020.0f, "Sedan", "Solar Red", 5, 3);
+    menu(vehicles);
 
-    Bike bike("Korss", "E-Bike MTB", 2020, 0.3f, 27, "Aluminium");
-
-    Other other("Xiaomi", "Mi Electric Scooter", 2018, 0.05f, 20, 5200);
-
-    Car car1("Porsche", "Taycan Turbo S", 2020, 761.0f, "Sedan", "Mamba Green", 5, 2);
-
-    Car car2("Tesla", "Model X", 2020, 275.0f, "SUV", "Deep Blue", 7, 2);
-
-    vehicles.push_back(&car);
-    vehicles.push_back(&bike);
-    vehicles.push_back(&other);
-    vehicles.push_back(&car1);
-    vehicles.push_back(&car2);
-
-
-    save(vehicles);
-    std::cout << "\n//////////////////////////////////////////////////////////////////////////////// \n\n";
-    read(vehicles);
-    std::cout << "\n//////////////////////////////////////////////////////////////////////////////// \n\n";
-
-
-    for(Vehicle* i: vehicles){
-        i->describe();
-    }
 
     return 0;
 
