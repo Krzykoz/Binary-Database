@@ -15,9 +15,13 @@ void printVect(std::vector <Vehicle*>& vect){
 int read(std::vector <Vehicle*>& vect) {
     std::vector <int> sizes;
     unsigned long vectSize;
+    std::string fileName = "records.dat";
+
+    std::cout << "Podaj nazwę Pliku: ";
+    std::cin >> fileName;
 
     std::ifstream inFile;
-    inFile.open("records.dat", std::ios::in | std::ios::binary);
+    inFile.open(fileName, std::ios::in | std::ios::binary);
 
     if(inFile.is_open()){
         inFile.read(reinterpret_cast<char*>(&vectSize), sizeof(unsigned long));
@@ -73,9 +77,13 @@ int read(std::vector <Vehicle*>& vect) {
 void save(std::vector <Vehicle *>& vehicles) {
     std::vector <int> sizes;
     unsigned long vectSize;
+    std::string fileName = "records.dat";
+
+    std::cout << "Podaj nazwę Pliku: ";
+    std::cin >> fileName;
 
     std::ofstream outFile;
-    outFile.open("records.dat", std::ios::out | std::ios::binary);
+    outFile.open(fileName, std::ios::out | std::ios::binary);
     sizes.reserve(vehicles.size());
 for(Vehicle *i : vehicles){
         sizes.push_back(i->size());
@@ -98,8 +106,20 @@ for(Vehicle *i : vehicles){
 }
 
 int delVech(std::vector <Vehicle *>& vect){
-    int index = 0;
+    unsigned int index = 0;
     printVect(vect);
+
+    std::cout << "Podaj numer pojazdu do usunięcia (Wpisz 0 zeby anulować): ";
+    std::cin >> index;
+
+    if(index!=0){
+        index--;
+        delete vect[index];
+        vect.erase(vect.begin() + index);
+        std::cout << "Usunięto Pojazd numer: " << index+1 << ".\n";
+    }else{
+        return 0;
+    }
 
 
 }
@@ -134,6 +154,11 @@ int menu(std::vector <Vehicle*>& vect){
         case 3:{
             std::cout << "\n//////////////////////////////////////////////////////////////////////////////// \n\n";
             printVect(vect);
+            std::cout << "\n//////////////////////////////////////////////////////////////////////////////// \n\n";
+        }break;
+        case 5:{
+            std::cout << "\n//////////////////////////////////////////////////////////////////////////////// \n\n";
+            delVech(vect);
             std::cout << "\n//////////////////////////////////////////////////////////////////////////////// \n\n";
         }break;
         case 6:{
