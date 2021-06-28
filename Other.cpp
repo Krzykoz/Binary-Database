@@ -2,9 +2,7 @@
 #include <iostream>
 #include <cstring>
 
-Other::Other() {
-
-}
+Other::Other() = default;
 
 Other::Other(const char manufacturer[25], const char name[25],
            unsigned year, float power,float range, unsigned battery)
@@ -13,4 +11,8 @@ Other::Other(const char manufacturer[25], const char name[25],
 void Other::describe() {
     std::cout << this->_manufacturer << " " << this->_name << " " << this->_year <<"\n";
     std::cout << this->_power << " HP, " << "Range: " << this->_range << " KM, Battery capacity: " << this->_battery << " mAh\n\n";
+}
+
+int Other::size() {
+    return sizeof(*this);
 }

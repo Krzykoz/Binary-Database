@@ -8,6 +8,7 @@ public:
     Other(const char manufacturer[25], const char name[25],
          unsigned year, float power, float range, unsigned battery);
     void describe() override;
+    int size() override;
 private:
     float _range;
     unsigned _battery;

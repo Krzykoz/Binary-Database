@@ -7,6 +7,7 @@ public:
     Vehicle();
     Vehicle(const char[25], const char[25], unsigned, float);
     virtual void describe() = 0;
+    virtual int size() = 0;
 protected:
     char _manufacturer[25];
     char _name[25];
