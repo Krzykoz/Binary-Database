@@ -1,4 +1,4 @@
-# Install script for directory: /Users/krzykoz/CLionProjects/Projekt PK
+# Install script for directory: /Users/krzykoz/Documents/ProjektPK 2.0
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/krzykoz/CLionProjects/Projekt PK/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/krzykoz/Documents/ProjektPK 2.0/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
