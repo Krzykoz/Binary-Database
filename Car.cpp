@@ -23,6 +23,7 @@ Car& Car::operator=(const Car & src) {
     strcpy(this->_color, src._color);
     strcpy(this->_name, src._name);
     strcpy(this->_manufacturer, src._manufacturer);
+    this->_power = src._power;
     this->_seats = src._seats;
     this->_motors = src._motors;
     this->_year = src._year;

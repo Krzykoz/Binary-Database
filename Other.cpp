@@ -4,10 +4,23 @@
 
 Other::Other() = default;
 
+Other::Other(const Other& src)
+        : Vehicle(src._manufacturer, src._name, src._year, src._power), _range(src._range), _battery(src._battery) {
+}
+
 Other::Other(const char manufacturer[25], const char name[25],
            unsigned year, float power,float range, unsigned battery)
         : Vehicle(manufacturer, name, year, power), _range(range), _battery(battery) {}
 
+Other& Other::operator=(const Other & src) {
+    strcpy(this->_name, src._name);
+    strcpy(this->_manufacturer, src._manufacturer);
+    this->_power = src._power;
+    this->_range = src._range;
+    this->_year = src._year;
+    this->_battery = src._battery;
+    return *this;
+}
 void Other::describe() {
     std::cout << this->_manufacturer << " " << this->_name << " " << this->_year <<"\n";
     std::cout << this->_power << " HP, " << "Range: " << this->_range << " KM, Battery capacity: " << this->_battery << " mAh\n\n";

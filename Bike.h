@@ -5,8 +5,10 @@
 class Bike : public Vehicle {
 public:
     Bike();
+    Bike(const Bike&);
     Bike(const char manufacturer[25], const char name[25],
         unsigned year, float power, unsigned size, const char frame[25]);
+    Bike& operator=(const Bike&);
     void describe() override;
     int size() override;
     void setData() override;
