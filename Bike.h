@@ -5,6 +5,7 @@
 class Bike : public Vehicle {
 public:
     Bike();
+    ~Bike() override;
     Bike(const Bike&);
     Bike(const char manufacturer[25], const char name[25],
         unsigned year, float power, unsigned size, const char frame[25]);

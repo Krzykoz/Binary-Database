@@ -4,6 +4,8 @@
 
 Bike::Bike() = default;
 
+Bike::~Bike()= default;
+
 Bike::Bike(const Bike& src)
         : Vehicle(src._manufacturer, src._name, src._year, src._power), _size(src._size) {
     strcpy(_frame, src._frame);

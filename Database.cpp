@@ -207,11 +207,11 @@ int Database::menu(){
         }break;
         case 6:{
             return 1;
-        }break;
+        }
         default:{
             std::cout << "Nieporawna Opcja Menu, uruchom program ponownie! \n";
             return 1;
-        }break;
+        }
     }
 
     this->menu();

@@ -5,6 +5,7 @@
 class Misc : public Vehicle {
 public:
     Misc();
+    ~Misc() override;
     Misc(const Misc&);
     Misc(const char manufacturer[25], const char name[25],
          unsigned year, float power, float range, unsigned battery);

@@ -4,6 +4,8 @@
 
 Misc::Misc() = default;
 
+Misc::~Misc()= default;
+
 Misc::Misc(const Misc& src)
         : Vehicle(src._manufacturer, src._name, src._year, src._power), _range(src._range), _battery(src._battery) {
 }

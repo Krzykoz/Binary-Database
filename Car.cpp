@@ -4,6 +4,8 @@
 
 Car::Car() = default;
 
+Car::~Car()= default;
+
 Car::Car(const Car& src)
     : Vehicle(src._manufacturer, src._name, src._year, src._power), _seats(src._seats), _motors(src._motors) {
     strcpy(_body, src._body);
