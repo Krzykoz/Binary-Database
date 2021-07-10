@@ -1,6 +1,7 @@
 #include "Bike.h"
 #include <iostream>
 #include <cstring>
+#include <iomanip>
 
 Bike::Bike() = default;
 
@@ -28,8 +29,9 @@ Bike& Bike::operator=(const Bike & src) {
 }
 
 void Bike::describe() {
-    std::cout << this->_manufacturer << " " << this->_name << " " << this->_year <<"\n";
-    std::cout << this->_power << " HP, " << "Size: " << this->_size << ", Frame material: " << this->_frame << "\n\n";
+    std::cout << std::setw(10) << this->_manufacturer << " | " << std::setw(20) << this->_name << " | "
+              <<  std::setw(4) << this->_year << " | " << std::setw(6) << this->_power << " HP | Rozmiar: "
+              << std::setw(10) <<this->_size << " | Materiał Ramy:   " << this->_frame << "\n";
 }
 
 int Bike::size() {

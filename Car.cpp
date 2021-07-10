@@ -1,17 +1,22 @@
 #include "Car.h"
 #include <iostream>
 #include <cstring>
+#include <iomanip>
 
+//Konstruktor Domyślny
 Car::Car() = default;
 
+//Destruktor Domyślny
 Car::~Car()= default;
 
+//Konstruktor Kopiujący
 Car::Car(const Car& src)
     : Vehicle(src._manufacturer, src._name, src._year, src._power), _seats(src._seats), _motors(src._motors) {
     strcpy(_body, src._body);
     strcpy(_color, src._color);
 }
 
+//Konstruktor
 Car::Car(const char manufacturer[25], const char name[25],
          unsigned year, float power,const char body[25],
          const char color[25], unsigned seats, unsigned motors)
@@ -20,6 +25,7 @@ Car::Car(const char manufacturer[25], const char name[25],
     strcpy(_color, color);
 }
 
+//Przeładowanie operatora "="
 Car& Car::operator=(const Car & src) {
     strcpy(this->_body, src._body);
     strcpy(this->_color, src._color);
@@ -32,15 +38,20 @@ Car& Car::operator=(const Car & src) {
     return *this;
 }
 
+//Wyświetlania dancyh obiektów
 void Car::describe() {
-    std::cout << this->_manufacturer << " " << this->_name << " " << this->_year <<"\n";
-    std::cout << this->_power << " HP, " << "Body type: " << this->_body << ", Color: " << this->_color << ", Seats: " << this->_seats << ", Motors: " << this->_motors << "\n\n";
+    std::cout << std::setw(10) << this->_manufacturer << " | " << std::setw(20) << this->_name << " | "
+    <<  std::setw(4) << this->_year << " | " << std::setw(6) << this->_power << " HP | Nadwozie:"
+    << std::setw(10) <<this->_body << " | Kolor:" << std::setw(15) << this->_color << " | Miejsca:"
+    << std::setw(3)<< this->_seats << " | Silniki: " << std::setw(1) << this->_motors << "\n";
 }
 
+//Metoda zwracająca rozmiar obiektu
 int Car::size() {
     return sizeof(*this);
 }
 
+//Metoda Pozwalająca ręcznie wpisać danie do obiektu
 void Car::setData(){
     const char *manu[25];
     const char *name[25];

@@ -6,15 +6,20 @@
 #include "iostream"
 #include "fstream"
 #include "vector"
+#include <iomanip>
 
 //Metoda Wyświetlająca pełną zawartość wektora pojazdów
 void Database::print(){
     int i = 1;
     for(Vehicle* v: this->_vehicles){// Pętla foreach
-        std::cout << i << ". ";
+        if(i%2==0){std::cout << "\x1b[30;47m";}
+        std::cout << std::setw(4) << i << " |";
         v->describe();
         i++;
+        std::cout << "\x1b[0m";
     }
+    std::cout << "\n\n";
+
 }
 
 //Metoda Wczytująca obiekty z pliku binarnego
@@ -175,18 +180,13 @@ int Database::del() {
 //Funkcja Menu odpowiedzialna za porusznaie sie po programie
 int Database::menu(){
     int x;// zmienna wyboru menu
-    std::cout << "###########################################\n";
-    std::cout << "#                                         #\n";
-    std::cout << "#              1. Wczytaj Plik            #\n";
-    std::cout << "#             2. Zapisz do Pliku          #\n";
-    std::cout << "#          3. Wyśietl Baze Danych         #\n";
-    std::cout << "#           4. Dodaj nowy pojazd          #\n";
-    std::cout << "#               5. Usuń Pojazd            #\n";
-    std::cout << "#             6. Zamknij Program          #\n";
-    std::cout << "#                                         #\n";
-    std::cout << "###########################################\n\n";
 
-    std::cout << "Wybierz opcje z menu: ";
+    std::cout << "\x1b[30;47m";
+    std::cout << "1: WCZYTAJ PLIK | 2: ZAPISZ DO PLIKU | 3: WYŚWIETL BAZE DANYCH | 4: DODAJ NOWY POJAZD | "
+    << "5: USUŃ POJAZD | 6: ZAMKNIJ PROGRAM\n";
+    std::cout << "\x1b[0m";
+    std::cout << "\nWYBIERZ OPCJE Z MENU: ";
+
     std::cin >> x;
 
     switch(x){// Switch odpowiedzielny za wybór opcji

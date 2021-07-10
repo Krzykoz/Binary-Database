@@ -1,6 +1,7 @@
 #include "Misc.h"
 #include <iostream>
 #include <cstring>
+#include <iomanip>
 
 Misc::Misc() = default;
 
@@ -24,8 +25,9 @@ Misc& Misc::operator=(const Misc & src) {
     return *this;
 }
 void Misc::describe() {
-    std::cout << this->_manufacturer << " " << this->_name << " " << this->_year <<"\n";
-    std::cout << this->_power << " HP, " << "Range: " << this->_range << " KM, Battery capacity: " << this->_battery << " mAh\n\n";
+    std::cout << std::setw(10) << this->_manufacturer << " | " << std::setw(20) << this->_name << " | "
+    <<  std::setw(4) << this->_year << " | " << std::setw(6) << this->_power << " HP | Zasięg:  "
+    << std::setw(10) <<this->_range << " | Pojemność Baterii:   " << this->_battery << "\n";
 }
 
 int Misc::size() {
