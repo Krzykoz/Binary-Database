@@ -4,7 +4,7 @@
 int main() {
     Database vehicles;// Obiekt z bazą danych pojazdów
 
-    vehicles.menu();// Wywołanie Metody Menu
+    vehicles.menu();// Wywołanie Metody Menu klasy Databases
 
     return 0;
 
