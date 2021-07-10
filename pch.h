@@ -3,6 +3,7 @@
 
 #include "Car.h"
 #include "Bike.h"
-#include "Other.h"
+#include "Misc.h"
+#include "Database.h"
 
 #endif //PROJEKT_PK_PCH_H
