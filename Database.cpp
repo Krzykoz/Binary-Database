@@ -190,7 +190,7 @@ int Database::del() {
 
         std::cout << "Podaj numer pojazdu do usunięcia (Wpisz 0 zeby anulować): ";
         std::cin >> index;
-        if(index>=this->_vehicles.size()-1 || index<0){
+        if(index>this->_vehicles.size() || index<0){
             std::cout << "\nBłąd! Nieprawidłowy index!\n";
             return 1;
         }
