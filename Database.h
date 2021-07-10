@@ -19,7 +19,7 @@ public:
     int save();
     int add();
     int del();
-
+    int menu();
 private:
     std::vector <Vehicle *> _vehicles;
 };

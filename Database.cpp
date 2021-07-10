@@ -172,3 +172,48 @@ int Database::del() {
 
 }
 
+//Funkcja Menu odpowiedzialna za porusznaie sie po programie
+int Database::menu(){
+    int x;// zmienna wyboru menu
+    std::cout << "###########################################\n";
+    std::cout << "#                                         #\n";
+    std::cout << "#              1. Wczytaj Plik            #\n";
+    std::cout << "#             2. Zapisz do Pliku          #\n";
+    std::cout << "#          3. Wyśietl Baze Danych         #\n";
+    std::cout << "#           4. Dodaj nowy pojazd          #\n";
+    std::cout << "#               5. Usuń Pojazd            #\n";
+    std::cout << "#             6. Zamknij Program          #\n";
+    std::cout << "#                                         #\n";
+    std::cout << "###########################################\n\n";
+
+    std::cout << "Wybierz opcje z menu: ";
+    std::cin >> x;
+
+    switch(x){// Switch odpowiedzielny za wybór opcji
+        case 1:{
+            this->read();//Wczytanie Pliku
+        }break;
+        case 2:{
+            this->save();//Zapisanie Pliku
+        }break;
+        case 3:{
+            this->print();//Wyświetlanie Bazy Danych
+        }break;
+        case 4:{
+            this->add();//Dodanie pojazdu
+        }break;
+        case 5:{
+            this->del();//Usunięcie pojazdu
+        }break;
+        case 6:{
+            return 1;
+        }break;
+        default:{
+            std::cout << "Nieporawna Opcja Menu, uruchom program ponownie! \n";
+            return 1;
+        }break;
+    }
+
+    this->menu();
+    return 0;
+}
