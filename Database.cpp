@@ -85,11 +85,12 @@ int Database::read() {
         }
         inFile.close();
         std::cout << "Wczytano " << vectSize << " Obiektów z pliku!\n";
-        return 0;
+        this->print();
     } else {
         std::cout << "Bład plik nie otwarty!\n";
         return 3;
     }
+    return 0;
 }
 
 //Metoda Zapisująca obiekty do pliku binarnego
@@ -245,6 +246,7 @@ int Database::sort(int key, bool rev) {
         std::cout << "Błąd! Brak Pojazdów do posortowania\n";
         return 3;
     }
+    this->print();
     return 0;
 }
 
@@ -276,11 +278,13 @@ int Database::menu() {
         case 4: {
             int sortChoice;
             int sortRev;
+
             std::cout << "\nSortowanie po: [1]Roczniku, [2]Mocy : ";
             std::cin >> sortChoice;
             if(sortChoice==1){
                 std::cout << "\nOd: [1]Najstarszego, [2]Najmłodszego : ";
                 std::cin >> sortRev;
+                std::cout << sortRev;
                 if(sortRev == 1) {
                     this->sort(1, true);
                 }else if(sortRev == 2){
@@ -293,9 +297,9 @@ int Database::menu() {
                 std::cout << "\nOd: [1]Najsłabszego, [2]Najmocniejszego : ";
                 std::cin >> sortRev;
                 if(sortRev == 1) {
-                    this->sort(0, true);
+                    this->sort(2, true);
                 }else if(sortRev == 2){
-                    this->sort(0, false);
+                    this->sort(2, false);
                 }else{
                     std::cout << "Błąd! Zła metoda sortowania!";
                 }

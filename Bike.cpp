@@ -47,6 +47,7 @@ int Bike::setData(){
     const char *frame[25];
 
     std::cout << "\nPodaj nazwę producenta roweru: ";
+    std::cin.ignore(1000,'\n');
     std::cin.getline((char *) manu, 25);
     if(std::cin.fail()){
         std::cout << "\nBłąd! Błędne dane!\n";
@@ -82,6 +83,7 @@ int Bike::setData(){
     }
 
     std::cout << "\nPodaj materiał ramy roweru: ";
+    std::cin.ignore(1000,'\n');
     std::cin.getline((char *) frame, 25);
     if(std::cin.fail()){
         std::cout << "\nBłąd! Błędne dane!\n";
@@ -94,4 +96,6 @@ int Bike::setData(){
     _power = power;
     _size = size;
     strcpy(this->_frame, reinterpret_cast<const char *>(frame));
+
+    return 0;
 }

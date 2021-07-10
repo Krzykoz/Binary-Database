@@ -93,8 +93,8 @@ int Car::setData(){
         std::cout << "\nBłąd! Błędne dane!\n";
         return 1;
     }
-
     std::cout << "\nPodaj rodzaj nadowzia samochodu: ";
+    std::cin.ignore(1000,'\n');
     std::cin.getline((char *) body, 25);
     if(std::cin.fail()){
         std::cout << "\nBłąd! Błędne dane!\n";

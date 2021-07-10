@@ -43,6 +43,7 @@ int Misc::setData(){
     unsigned battery;
 
     std::cout << "\nPodaj nazwę producenta pojazdu: ";
+    std::cin.ignore(1000,'\n');
     std::cin.getline((char *) manu, 25);
     if(std::cin.fail()){
         std::cout << "\nBłąd! Błędne dane!\n";
@@ -90,4 +91,6 @@ int Misc::setData(){
     _power = power;
     _range = range;
     _battery = battery;
+
+    return 0;
 }
