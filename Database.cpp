@@ -210,6 +210,7 @@ int Database::del() {
     return 0;
 }
 
+//Metoda Sortująca Baze Danych
 int Database::sort(int key, bool rev) {
     if (this->_vehicles.size() > 1) {
         switch (key) {
@@ -246,7 +247,6 @@ int Database::sort(int key, bool rev) {
     }
     return 0;
 }
-
 
 //Funkcja Menu odpowiedzialna za porusznaie sie po programie
 int Database::menu() {

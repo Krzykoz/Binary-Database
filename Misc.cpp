@@ -43,14 +43,14 @@ int Misc::setData(){
     unsigned battery;
 
     std::cout << "\nPodaj nazwę producenta pojazdu: ";
-    std::cin >> (signed char *) manu;
+    std::cin.getline((char *) manu, 25);
     if(std::cin.fail()){
         std::cout << "\nBłąd! Błędne dane!\n";
         return 1;
     }
 
     std::cout << "\nPodaj nazwę pojazdu: ";
-    std::cin >> (signed char *) name;
+    std::cin.getline((char *) name, 25);
     if(std::cin.fail()){
         std::cout << "\nBłąd! Błędne dane!\n";
         return 1;

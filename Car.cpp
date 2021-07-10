@@ -65,14 +65,15 @@ int Car::setData(){
 
 
     std::cout << "\nPodaj nazwę producenta samochodu: ";
-    std::cin >> (signed char *) manu;
+    std::cin.ignore();
+    std::cin.getline((char *) manu, 25);
     if(std::cin.fail()){
         std::cout << "\nBłąd! Błędne dane!\n";
         return 1;
     }
 
     std::cout << "\nPodaj nazwę samochodu: ";
-    std::cin >> (signed char *) name;
+    std::cin.getline((char *) name, 25);
     if(std::cin.fail()){
         std::cout << "\nBłąd! Błędne dane!\n";
         return 1;
@@ -94,14 +95,14 @@ int Car::setData(){
     }
 
     std::cout << "\nPodaj rodzaj nadowzia samochodu: ";
-    std::cin >> (signed char *) body;
+    std::cin.getline((char *) body, 25);
     if(std::cin.fail()){
         std::cout << "\nBłąd! Błędne dane!\n";
         return 1;
     }
 
     std::cout << "\nPodaj kolor karoseri samochodu: ";
-    std::cin >> (signed char *) color;
+    std::cin.getline((char *) color, 25);
     if(std::cin.fail()){
         std::cout << "\nBłąd! Błędne dane!\n";
         return 1;
