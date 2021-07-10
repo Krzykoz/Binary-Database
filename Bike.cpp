@@ -38,7 +38,7 @@ int Bike::size() {
     return sizeof(*this);
 }
 
-void Bike::setData(){
+int Bike::setData(){
     const char *manu[25];
     const char *name[25];
     unsigned year;
@@ -48,25 +48,50 @@ void Bike::setData(){
 
     std::cout << "\nPodaj nazwę producenta roweru: ";
     std::cin >> (signed char *) manu;
-    strcpy(this->_manufacturer, reinterpret_cast<const char *>(manu));
+    if(std::cin.fail()){
+        std::cout << "\nBłąd! Błędne dane!\n";
+        return 1;
+    }
 
     std::cout << "\nPodaj nazwę roweru: ";
     std::cin >> (signed char *) name;
-    strcpy(this->_name, reinterpret_cast<const char *>(name));
+    if(std::cin.fail()){
+        std::cout << "\nBłąd! Błędne dane!\n";
+        return 1;
+    }
 
     std::cout << "\nPodaj rok produkcji roweru: ";
     std::cin >> year;
-    _year = year;
+    if(std::cin.fail()){
+        std::cout << "\nBłąd! Błędne dane!\n";
+        return 1;
+    }
 
     std::cout << "\nPodaj moc roweru: ";
     std::cin >> power;
-    _power = power;
+    if(std::cin.fail()){
+        std::cout << "\nBłąd! Błędne dane!\n";
+        return 1;
+    }
 
     std::cout << "\nPodaj rozmiar ramy roweru: ";
     std::cin >> size;
-    _size = size;
+    if(std::cin.fail()){
+        std::cout << "\nBłąd! Błędne dane!\n";
+        return 1;
+    }
 
     std::cout << "\nPodaj materiał ramy roweru: ";
     std::cin >> (signed char *) frame;
+    if(std::cin.fail()){
+        std::cout << "\nBłąd! Błędne dane!\n";
+        return 1;
+    }
+
+    strcpy(this->_manufacturer, reinterpret_cast<const char *>(manu));
+    strcpy(this->_name, reinterpret_cast<const char *>(name));
+    _year = year;
+    _power = power;
+    _size = size;
     strcpy(this->_frame, reinterpret_cast<const char *>(frame));
 }

@@ -15,7 +15,7 @@ public:
     Car& operator=(const Car&);
     void describe() override;
     int size() override;
-    void setData() override;
+    int setData() override;
 private:
     char _body[25];
     char _color[25];

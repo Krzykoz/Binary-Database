@@ -52,7 +52,7 @@ int Car::size() {
 }
 
 //Metoda Pozwalająca ręcznie wpisać danie do obiektu
-void Car::setData(){
+int Car::setData(){
     const char *manu[25];
     const char *name[25];
     unsigned year;
@@ -66,33 +66,69 @@ void Car::setData(){
 
     std::cout << "\nPodaj nazwę producenta samochodu: ";
     std::cin >> (signed char *) manu;
-    strcpy(this->_manufacturer, reinterpret_cast<const char *>(manu));
+    if(std::cin.fail()){
+        std::cout << "\nBłąd! Błędne dane!\n";
+        return 1;
+    }
 
     std::cout << "\nPodaj nazwę samochodu: ";
     std::cin >> (signed char *) name;
-    strcpy(this->_name, reinterpret_cast<const char *>(name));
+    if(std::cin.fail()){
+        std::cout << "\nBłąd! Błędne dane!\n";
+        return 1;
+    }
 
     std::cout << "\nPodaj rok produkcji samochodu: ";
     std::cin >> year;
-    _year = year;
+    if(std::cin.fail()){
+        std::cout << "\nBłąd! Błędne dane!\n";
+
+        return 1;
+    }
 
     std::cout << "\nPodaj moc samochodu: ";
     std::cin >> power;
-    _power = power;
+    if(std::cin.fail()){
+        std::cout << "\nBłąd! Błędne dane!\n";
+        return 1;
+    }
 
     std::cout << "\nPodaj rodzaj nadowzia samochodu: ";
     std::cin >> (signed char *) body;
-    strcpy(this->_body, reinterpret_cast<const char *>(body));
+    if(std::cin.fail()){
+        std::cout << "\nBłąd! Błędne dane!\n";
+        return 1;
+    }
 
     std::cout << "\nPodaj kolor karoseri samochodu: ";
     std::cin >> (signed char *) color;
-    strcpy(this->_color, reinterpret_cast<const char *>(color));
+    if(std::cin.fail()){
+        std::cout << "\nBłąd! Błędne dane!\n";
+        return 1;
+    }
 
     std::cout << "\nPodaj ilość miejsc w samochodzie: ";
     std::cin >> seats;
-    _year = seats;
+    if(std::cin.fail()){
+        std::cout << "\nBłąd! Błędne dane!\n";
+        return 1;
+    }
 
     std::cout << "\nPodaj ilość silników w samochodzie: ";
     std::cin >> motors;
-    _year = motors;
+    if(std::cin.fail()){
+        std::cout << "\nBłąd! Błędne dane!\n";
+        return 1;
+    }
+
+    strcpy(this->_manufacturer, reinterpret_cast<const char *>(manu));
+    strcpy(this->_name, reinterpret_cast<const char *>(name));
+    _year = year;
+    _power = power;
+    strcpy(this->_body, reinterpret_cast<const char *>(body));
+    strcpy(this->_color, reinterpret_cast<const char *>(color));
+    _seats = seats;
+    _motors = motors;
+
+    return 0;
 }

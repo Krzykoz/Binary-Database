@@ -34,7 +34,7 @@ int Misc::size() {
     return sizeof(*this);
 }
 
-void Misc::setData(){
+int Misc::setData(){
     const char *manu[25];
     const char *name[25];
     unsigned year;
@@ -44,25 +44,50 @@ void Misc::setData(){
 
     std::cout << "\nPodaj nazwę producenta pojazdu: ";
     std::cin >> (signed char *) manu;
-    strcpy(this->_manufacturer, reinterpret_cast<const char *>(manu));
+    if(std::cin.fail()){
+        std::cout << "\nBłąd! Błędne dane!\n";
+        return 1;
+    }
 
     std::cout << "\nPodaj nazwę pojazdu: ";
     std::cin >> (signed char *) name;
-    strcpy(this->_name, reinterpret_cast<const char *>(name));
+    if(std::cin.fail()){
+        std::cout << "\nBłąd! Błędne dane!\n";
+        return 1;
+    }
 
     std::cout << "\nPodaj rok produkcji pojazdu: ";
     std::cin >> year;
-    _year = year;
+    if(std::cin.fail()){
+        std::cout << "\nBłąd! Błędne dane!\n";
+        return 1;
+    }
 
     std::cout << "\nPodaj moc pojazdu: ";
     std::cin >> power;
-    _power = power;
+    if(std::cin.fail()){
+        std::cout << "\nBłąd! Błędne dane!\n";
+        return 1;
+    }
 
     std::cout << "\nPodaj zasięg pojazdu: ";
     std::cin >> range;
-    _range = range;
+    if(std::cin.fail()){
+        std::cout << "\nBłąd! Błędne dane!\n";
+        return 1;
+    }
 
     std::cout << "\nPodaj pojemność batteri pojazdu: ";
     std::cin >> battery;
+    if(std::cin.fail()){
+        std::cout << "\nBłąd! Błędne dane!\n";
+        return 1;
+    }
+
+    strcpy(this->_manufacturer, reinterpret_cast<const char *>(manu));
+    strcpy(this->_name, reinterpret_cast<const char *>(name));
+    _year = year;
+    _power = power;
+    _range = range;
     _battery = battery;
 }

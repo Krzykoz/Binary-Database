@@ -12,7 +12,7 @@ public:
     Misc& operator=(const Misc&);
     void describe() override;
     int size() override;
-    void setData() override;
+    int setData() override;
 private:
     float _range;
     unsigned _battery;

@@ -12,7 +12,7 @@ public:
     Bike& operator=(const Bike&);
     void describe() override;
     int size() override;
-    void setData() override;
+    int setData() override;
 private:
     unsigned _size;
     char _frame[25];

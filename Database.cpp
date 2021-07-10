@@ -3,25 +3,31 @@
 //
 
 #include "Database.h"
-#include "iostream"
-#include "fstream"
-#include "vector"
+#include <fstream>
+#include <vector>
 #include <iomanip>
 #include <algorithm>
+#include <iostream>
 
 
 //Metoda Wyświetlająca pełną zawartość wektora pojazdów
-void Database::print() {
-    int i = 1;
-    for (Vehicle *v: this->_vehicles) {// Pętla foreach
-        if (i % 2 == 0) { std::cout << "\x1b[30;47m"; }
-        std::cout << std::setw(4) << i << " |";
-        v->describe();
-        i++;
-        std::cout << "\x1b[0m";
+int Database::print() {
+    if(!this->_vehicles.empty()){
+        int i = 1;
+        for (Vehicle *v: this->_vehicles) {// Pętla foreach
+            if (i % 2 == 0) { std::cout << "\x1b[30;47m"; }
+            std::cout << std::setw(4) << i << " |";
+            v->describe();
+            i++;
+            std::cout << "\x1b[0m";
+        }
+        std::cout << "\n\n";
+    }else{
+        std::cout << "Błąd! Brak Pojazdów w Bazie Danych!\n";
+        return 1;
     }
-    std::cout << "\n\n";
 
+    return 0;
 }
 
 //Metoda Wczytująca obiekty z pliku binarnego
@@ -134,26 +140,38 @@ int Database::add() {
     switch (choice) {// Wybór obiektu do dodania
         case 1: {
             Car c1;//Utworzenie obiektu w pamięci stack
-            c1.setData();//Wpisanie danych obiektu
-            Car *c2 = new Car(c1);//Skopiowanie obiektu z pamięci stack do pamięci heap
-            c2->describe();//Wyświetlenie obiektu
-            this->_vehicles.push_back(c2);//Zapisanie wskaznika obiektu do wektora pojazdów
+            if(c1.setData()==0){//Wpisanie danych obiektu
+                Car *c2 = new Car(c1);//Skopiowanie obiektu z pamięci stack do pamięci heap
+                c2->describe();//Wyświetlenie obiektu
+                this->_vehicles.push_back(c2);//Zapisanie wskaznika obiektu do wektora pojazdów
+            }else{
+                std::cout << "Nie udało się dodać pojazdu, uruchom program ponownie";
+                return 1;
+            }
         }
             break;
         case 2: {
             Bike b1;
-            b1.setData();
-            Bike *b2 = new Bike(b1);
-            b2->describe();
-            this->_vehicles.push_back(b2);
+            if(b1.setData()==0){//Wpisanie danych obiektu
+                Bike *b2 = new Bike(b1);//Skopiowanie obiektu z pamięci stack do pamięci heap
+                b2->describe();//Wyświetlenie obiektu
+                this->_vehicles.push_back(b2);//Zapisanie wskaznika obiektu do wektora pojazdów
+            }else{
+                std::cout << "Nie udało się dodać pojazdu, uruchom program ponownie";
+                return 1;
+            }
         }
             break;
         case 3: {
             Misc m1;
-            m1.setData();
-            Misc *m2 = new Misc(m1);
-            m2->describe();
-            this->_vehicles.push_back(m2);
+            if(m1.setData()==0) {
+                Misc *m2 = new Misc(m1);
+                m2->describe();
+                this->_vehicles.push_back(m2);
+            } else{
+                std::cout << "Nie udało się dodać pojazdu, uruchom program ponownie";
+                return 1;
+            }
         }
             break;
         default: {
@@ -165,22 +183,31 @@ int Database::add() {
 
 //Metoda Usuwająca Pojazd z pamięci i wskaznik z wektora
 int Database::del() {
-    unsigned int index = 0;
-    this->print();
+    if(!this->_vehicles.empty()) {
+        unsigned int index = 0;
+        this->print();
 
-    std::cout << "Podaj numer pojazdu do usunięcia (Wpisz 0 zeby anulować): ";
-    std::cin >> index;
+        std::cout << "Podaj numer pojazdu do usunięcia (Wpisz 0 zeby anulować): ";
+        std::cin >> index;
+        if(index>=this->_vehicles.size()-1 || index<0){
+            std::cout << "\nBłąd! Nieprawidłowy index!\n";
+            return 1;
+        }
 
-    if (index != 0) {
-        index--;
-        delete this->_vehicles[index];// usunięcie obiektu z pamięci
-        this->_vehicles.erase(this->_vehicles.begin() + index);// usunięcie wskaznika obiektu w wektorze
-        std::cout << "Usunięto Pojazd numer: " << index + 1 << ".\n";
-    } else {
+        if (index != 0) {
+            index--;
+            delete this->_vehicles[index];// usunięcie obiektu z pamięci
+            this->_vehicles.erase(this->_vehicles.begin() + index);// usunięcie wskaznika obiektu w wektorze
+            std::cout << "Usunięto Pojazd numer: " << index + 1 << ".\n";
+        } else {
+            return 1;
+        }
+    } else{
+        std::cout << "\nBłąd! Brak Pojazdów w Bazie Danych!\n";
         return 1;
     }
-    return 0;
 
+    return 0;
 }
 
 int Database::sort(int key, bool rev) {
@@ -279,7 +306,9 @@ int Database::menu() {
         }
             break;
         case 5: {
-            this->add();//Dodanie pojazdu
+            if(this->add()!=0){//Dodanie pojazdu
+                return 1;
+            }
         }
             break;
         case 6: {

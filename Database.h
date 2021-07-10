@@ -14,7 +14,7 @@
 
 class Database {
 public:
-    void print();
+    int print();
     int read();
     int save();
     int add();
