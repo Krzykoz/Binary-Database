@@ -19,6 +19,7 @@ public:
     int save();
     int add();
     int del();
+    int sort(int key, bool rev);
     int menu();
 private:
     std::vector <Vehicle *> _vehicles;

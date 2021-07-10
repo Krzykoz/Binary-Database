@@ -15,6 +15,7 @@ protected:
     char _name[25];
     unsigned _year;
     float _power;
+    friend class Database;
 };
 
 #endif //PROJEKT_PK_VEHICLE_H

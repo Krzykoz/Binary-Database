@@ -6,6 +6,9 @@ int main() {
 
     vehicles.menu();// Wywołanie Metody Menu klasy Databases
 
+    vehicles.sort(1, true);
+    vehicles.print();
+
     return 0;
 
 }
