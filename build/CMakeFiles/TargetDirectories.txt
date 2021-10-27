@@ -1,3 +1,0 @@
-/Users/krzykoz/Developer/Binary-Database/build/CMakeFiles/rebuild_cache.dir
-/Users/krzykoz/Developer/Binary-Database/build/CMakeFiles/edit_cache.dir
-/Users/krzykoz/Developer/Binary-Database/build/CMakeFiles/Database.dir
