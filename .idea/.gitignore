@@ -7,4 +7,5 @@
 # Editor-based HTTP Client requests
 /httpRequests/
 # Build folder
-/build/
+**/build/
+/build/**

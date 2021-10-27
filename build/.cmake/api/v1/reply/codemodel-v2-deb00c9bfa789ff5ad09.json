@@ -6,7 +6,7 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"jsonFile" : "directory-.-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.19"
@@ -19,7 +19,7 @@
 					]
 				}
 			],
-			"name" : "Debug",
+			"name" : "",
 			"projects" : 
 			[
 				{
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Database::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Database-Debug-9edfcf453fe5492d0a54.json",
+					"jsonFile" : "target-Database-4a032a432393eb84c9f2.json",
 					"name" : "Database",
 					"projectIndex" : 0
 				}

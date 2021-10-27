@@ -1,5 +1,5 @@
-#include "pch.h"
 //setlocale(LC_ALL, "polish"); //Polskie znaki w konsoli [Windows: on] [macOS: off]
+#include "pch.h"
 
 int main() {
     Database vehicles;// Obiekt z bazą danych pojazdów    std::cout << "\x1b[31;44m";
